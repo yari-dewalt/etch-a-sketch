@@ -43,3 +43,12 @@ squares.forEach(square => {
         }
     })
 })
+
+const button = document.querySelector(".resetbtn");
+
+button.addEventListener("click", () => {
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+        square.removeAttribute("class", "activated");
+    })
+})

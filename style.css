@@ -4,6 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .container {
@@ -19,4 +20,15 @@ body {
     height: 40px;
     width: 40px;
     border: 1px solid black;
+}
+
+.resetbtn {
+    flex-shrink: 0;
+    margin-top: 20px;
+    height: 60px;
+    width: 200px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
 }
