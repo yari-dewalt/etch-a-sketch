@@ -17,8 +17,8 @@ body {
 }
 
 #square {
-    height: 40px;
-    width: 40px;
+    height: 4px;
+    width: 4px;
     border: 1px solid black;
 }
 
@@ -31,4 +31,8 @@ body {
     font-size: 20px;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
+}
+
+#dimension {
+    margin-bottom: 20px;
 }
