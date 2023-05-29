@@ -9,8 +9,21 @@
         <script src="javascript.js" defer></script>
     </head>
     <body>
-        <input type="text" id="dimension" placeholder="Dimension">
-        <div class="container" ondragstart="return false;"></div>
+        <input type="text" class="dimension" placeholder="0">
+        <div class="main-container">
+            <div class="buttons-container">
+                <button class="color-button" id="grey"></button>
+                <button class="color-button" id="blue"></button>
+                <button class="color-button" id="green"></button>
+                <button class="color-button" id="purple"></button>
+                <button class="color-button" id="orange"></button>
+                <button class="color-button" id="yellow"></button>
+                <button class="color-button" id="rainbow"></button>
+                <button class="color-button" id="white"></button>
+            </div>
+            <div class="container" ondragstart="return false;"></div>
+            <div class="empty-container"></div>
+        </div>
         <button class="resetbtn">Reset</button>
     </body>
 </html>

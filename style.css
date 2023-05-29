@@ -5,15 +5,36 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #3f4b57;
+}
+
+
+.main-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .container {
+    margin: auto;
     height: 672px;
     width: 672px;
     display: flex;
     flex-wrap: wrap;
     border: 4px solid black;
     flex-shrink: 0;
+    background-color: white;
+}
+
+.buttons-container {
+    margin: auto;
+    width: 200px;
+}
+
+.empty-container {
+    width: 200px;
+    margin: auto;
 }
 
 #square {
@@ -24,7 +45,8 @@ body {
 
 .resetbtn {
     flex-shrink: 0;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     height: 60px;
     width: 200px;
     border-radius: 4px;
@@ -33,6 +55,51 @@ body {
     font-weight: bold;
 }
 
-#dimension {
-    margin-bottom: 20px;
+.dimension {
+    margin-bottom: 10px;
+    height: 60px;
+    width: 120px;
+    font-size: 72px;
+    font-weight: bold;
+    color: #5d6e80;
+    text-align: center;
+    background-color: #3f4b57;
+    border-color: transparent;
+}
+
+.color-button {
+    height: 40px;
+    width: 40px;
+}
+
+#grey {
+    background-color: grey;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#green {
+    background-color: green;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#orange {
+    background-color: orange;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#rainbow {
+    background-color: royalblue;
+}
+
+#white {
+    background-color: white;
 }

@@ -1,7 +1,23 @@
+let colorButtons = document.querySelectorAll(".color-button");
+
+function getColor(button) {
+    let color = button.getAttribute("id");
+    return color;
+}
+
+let currentColor = "grey";
+
+colorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        currentColor = getColor(button);
+    })
+})
+
 const container = document.querySelector(".container");
-let dimensionContainer = document.querySelector("#dimension");
+let dimensionContainer = document.querySelector(".dimension");
 
 let dimension = 0;
+
 
 dimensionContainer.addEventListener("input", () => {
     dimension = dimensionContainer.value;
@@ -28,11 +44,11 @@ dimensionContainer.addEventListener("input", () => {
     console.log(pixels_per_square);
     console.log(square_side);
     //Then recalculate dimensions of container
-    //container.setAttribute("style", `height: ${dimension * square_side}px;`);
-    //container.setAttribute("style", `width: ${dimension * square_side}px;`);
-    container.style.height = `${dimension * square_side}px`;
-    container.style.width = `${dimension * square_side}px`;
 
+    if (dimension <= 100 && dimension > 0) {
+        container.style.height = `${dimension * square_side}px`;
+        container.style.width = `${dimension * square_side}px`;
+    }
 
     const squares = document.querySelectorAll("#square");
 
@@ -43,20 +59,18 @@ dimensionContainer.addEventListener("input", () => {
         square.addEventListener("mouseover", (e) => {
             let style = window.getComputedStyle(square);
 
-            if (style.backgroundColor === "rgb(128, 128, 128)") {
+            if (style.backgroundColor === "rgba(0, 0, 0, 0)" || style.backgroundColor === "rgb(255, 255, 255)") {
                 square.style.backgroundColor = "red";
             }
 
-            square.style.backgroundColor = "red";
-
             if (e.buttons == 1 || e.buttons == 3) {
-                square.style.backgroundColor = "grey";
+                square.style.backgroundColor = currentColor;
                 square.setAttribute("class", "activated");
             }
         })
         
         square.addEventListener("mousedown", () => {
-            square.style.backgroundColor = "grey";
+            square.style.backgroundColor = currentColor;
             square.setAttribute("class", "activated");
         })
 
@@ -64,23 +78,23 @@ dimensionContainer.addEventListener("input", () => {
             let style = window.getComputedStyle(square);
 
             if (style.backgroundColor === "rgb(255, 0, 0)" && square.getAttribute("class") === "activated") {
-                square.style.backgroundColor = "grey";
+                square.style.backgroundColor = currentColor;
             }
 
             else if (style.backgroundColor === "rgb(255, 0, 0)") {
                 square.style.backgroundColor = "white";
             }
+
+            square.removeAttribute("class", "activated");
         })
 })
 
-const button = document.querySelector(".resetbtn");
+    const button = document.querySelector(".resetbtn");
 
-button.addEventListener("click", () => {
-    squares.forEach(square => {
-        square.style.backgroundColor = "white";
-        square.removeAttribute("class", "activated");
+    button.addEventListener("click", () => {
+        squares.forEach(square => {
+            square.style.backgroundColor = "white";
+            square.removeAttribute("class", "activated");
+        })
     })
 })
-})
-
-//container.setAttribute("style", "width: 900px;");
