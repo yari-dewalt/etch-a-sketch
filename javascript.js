@@ -101,7 +101,7 @@ dimensionContainer.addEventListener("input", () => {
         
         square.addEventListener("mousedown", () => {
             if (rainbowSelected === true) {
-                let random = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+                let random = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
                 if (random === 1) {
                     currentColor = "red";
                 }
