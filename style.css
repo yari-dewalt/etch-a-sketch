@@ -14,6 +14,7 @@ body {
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .container {
@@ -30,6 +31,9 @@ body {
 .buttons-container {
     margin: auto;
     width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .empty-container {
@@ -70,6 +74,7 @@ body {
 .color-button {
     height: 40px;
     width: 40px;
+    flex-shrink: 0;
 }
 
 #grey {
@@ -88,8 +93,8 @@ body {
     background-color: purple;
 }
 
-#orange {
-    background-color: orange;
+#red {
+    background-color: red;
 }
 
 #yellow {
@@ -97,7 +102,9 @@ body {
 }
 
 #rainbow {
-    background-color: royalblue;
+    background: linear-gradient(to bottom, #3333ff 0%, #ff6699 100%);
+    font-weight: bold;
+    font-size: 24px;
 }
 
 #white {
