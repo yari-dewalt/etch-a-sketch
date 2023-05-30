@@ -6,10 +6,18 @@ function getColor(button) {
 }
 
 let currentColor = "grey";
+let rainbowSelected = false;
 
 colorButtons.forEach(button => {
     button.addEventListener("click", () => {
         currentColor = getColor(button);
+
+        if (button.getAttribute("id") === "rainbow") {
+            rainbowSelected = true;
+        }
+        else {
+            rainbowSelected = false;
+        }
     })
 })
 
@@ -41,10 +49,7 @@ dimensionContainer.addEventListener("input", () => {
         square_side = Math.round(square_side);
     }
 
-    console.log(pixels_per_square);
-    console.log(square_side);
     //Then recalculate dimensions of container
-
     if (dimension <= 100 && dimension > 0) {
         container.style.height = `${dimension * square_side}px`;
         container.style.width = `${dimension * square_side}px`;
@@ -59,7 +64,32 @@ dimensionContainer.addEventListener("input", () => {
         square.addEventListener("mouseover", (e) => {
             let style = window.getComputedStyle(square);
 
-            if (style.backgroundColor === "rgba(0, 0, 0, 0)" || style.backgroundColor === "rgb(255, 255, 255)") {
+            if (rainbowSelected === true) {
+                let random = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
+                if (random === 1) {
+                    currentColor = "red";
+                }
+                else if (random === 2) {
+                    currentColor = "orange";
+                }
+                else if (random === 3) {
+                    currentColor = "yellow";
+                }
+                else if (random === 4) {
+                    currentColor = "green";
+                }
+                else if (random === 5) {
+                    currentColor = "blue";
+                }
+                else if (random === 6) {
+                    currentColor = "indigo";
+                }
+                else if (random === 7) {
+                    currentColor = "violet";
+                }
+            }
+
+            if (style.backgroundColor === "rgba(0, 0, 0, 0)" || style.backgroundColor === "rgb(255, 255, 255)" && square.getAttribute("class") !== "activated") {
                 square.style.backgroundColor = "red";
             }
 
@@ -70,6 +100,30 @@ dimensionContainer.addEventListener("input", () => {
         })
         
         square.addEventListener("mousedown", () => {
+            if (rainbowSelected === true) {
+                let random = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+                if (random === 1) {
+                    currentColor = "red";
+                }
+                else if (random === 2) {
+                    currentColor = "orange";
+                }
+                else if (random === 3) {
+                    currentColor = "yellow";
+                }
+                else if (random === 4) {
+                    currentColor = "green";
+                }
+                else if (random === 5) {
+                    currentColor = "blue";
+                }
+                else if (random === 6) {
+                    currentColor = "indigo";
+                }
+                else if (random === 7) {
+                    currentColor = "violet";
+                }
+            }
             square.style.backgroundColor = currentColor;
             square.setAttribute("class", "activated");
         })
@@ -77,15 +131,15 @@ dimensionContainer.addEventListener("input", () => {
         square.addEventListener("mouseleave", () => {
             let style = window.getComputedStyle(square);
 
-            if (style.backgroundColor === "rgb(255, 0, 0)" && square.getAttribute("class") === "activated") {
-                square.style.backgroundColor = currentColor;
-            }
+            //if (style.backgroundColor === "rgb(255, 0, 0)" && square.getAttribute("class") === "activated") {
+                //square.style.backgroundColor = currentColor;
+                //square.removeAttribute("class", "activated");
+            //}
 
-            else if (style.backgroundColor === "rgb(255, 0, 0)") {
+            if (style.backgroundColor === "rgb(255, 0, 0)" && square.getAttribute("class") !== "activated") {
                 square.style.backgroundColor = "white";
             }
 
-            square.removeAttribute("class", "activated");
         })
 })
 
